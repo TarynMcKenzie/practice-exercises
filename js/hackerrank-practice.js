@@ -208,8 +208,6 @@ function getLetter(s) {
   return letter;
 }
 
-
-
 //======================================================================
 /* Day 2: Loops
  *
@@ -217,46 +215,62 @@ function getLetter(s) {
  * Print your output using 'console.log()'.
  */
 function vowelsAndConsonants(s) {
-    
-    let consonants = "";
-    let vowels = "aeiouAEIOU";
+  let consonants = "";
+  let vowels = "aeiouAEIOU";
 
-    for(let i of s){
-
-        if (vowels.includes(i)){
-            
-            console.log(i);
-            
-        } else {
-            consonants += i + "\n";
-        }
-
+  for (let i of s) {
+    if (vowels.includes(i)) {
+      console.log(i);
+    } else {
+      consonants += i + "\n";
     }
+  }
 
-   return console.log(consonants);
-
+  return console.log(consonants);
 }
-
-
 
 //======================================================================
 /* Day 3: Arrays
-*   Return the second largest number in the array.
-*   @param {Number[]} nums - An array of numbers.
-*   @return {Number} The second largest number in the array.
-**/
+ *   Return the second largest number in the array.
+ *   @param {Number[]} nums - An array of numbers.
+ *   @return {Number} The second largest number in the array.
+ **/
 function getSecondLargest(nums) {
+  let largest = 0;
+  let secondLargest = 0;
 
-    let largest = 0;
-
-    // Complete the function
-    for(let current = 0; current <= nums.length; current++){
-
-        if(current > largest){
-            largest = current;
-        }
-
+  // Complete the function
+  for (let current = 0; current < nums.length; current++) {
+    if (nums[current] > largest) {
+      secondLargest = largest;
+      largest = nums[current];
+    } else if (nums[current] > secondLargest && nums[current] < largest) {
+      secondLargest = nums[current];
     }
+  }
 
-    return largest;
+  return secondLargest;
 }
+
+//======================================================================
+/* Day 3: Try, Catch, and Finally
+ * Complete the reverseString function
+ * Use console.log() to print to stdout.
+ */
+
+function reverseString(s) {
+    
+    let errorMessage = "s.split is not a function \n" + s;
+    
+    try {
+        let reversal;
+        if ( typeof s === 'string' ){
+            reversal = s.split('').reverse().join('');;
+            console.log(reversal);
+        } else {
+            throw errorMessage;
+        }
+    } catch{
+        console.log(errorMessage);
+      }
+    }
