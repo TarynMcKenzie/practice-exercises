@@ -259,18 +259,50 @@ function getSecondLargest(nums) {
  */
 
 function reverseString(s) {
-    
-    let errorMessage = "s.split is not a function \n" + s;
-    
-    try {
-        let reversal;
-        if ( typeof s === 'string' ){
-            reversal = s.split('').reverse().join('');;
-            console.log(reversal);
-        } else {
-            throw errorMessage;
-        }
-    } catch{
-        console.log(errorMessage);
-      }
+  let errorMessage = "s.split is not a function \n" + s;
+
+  try {
+    let reversal;
+    if (typeof s === "string") {
+      reversal = s.split("").reverse().join("");
+      console.log(reversal);
+    } else {
+      throw errorMessage;
     }
+  } catch {
+    console.log(errorMessage);
+  }
+}
+
+//======================================================================
+/* Day 3: Throw
+ * Complete the isPositive function.
+ * If 'a' is positive, return "YES".
+ * If 'a' is 0, throw an Error with the message "Zero Error"
+ * If 'a' is negative, throw an Error with the message "Negative Error"
+ */
+
+function isPositive(a) {
+  
+  let negativeError = "Negative Error";
+  let zeroError = "Zero Error";
+
+  if (a > 0) {
+    return "YES";
+  }
+
+  // 0 is the only digit that returns false
+  throw Error( a ? negativeError : zeroError);
+
+}
+
+
+
+//======================================================================
+/* Day 4: Create a Rectangle Object
+ * Complete the Rectangle function
+ */
+
+function Rectangle(a, b) {
+    
+}
