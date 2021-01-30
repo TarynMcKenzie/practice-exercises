@@ -283,7 +283,6 @@ function reverseString(s) {
  */
 
 function isPositive(a) {
-  
   let negativeError = "Negative Error";
   let zeroError = "Zero Error";
 
@@ -292,11 +291,8 @@ function isPositive(a) {
   }
 
   // 0 is the only digit that returns false
-  throw Error( a ? negativeError : zeroError);
-
+  throw Error(a ? negativeError : zeroError);
 }
-
-
 
 //======================================================================
 /* Day 4: Create a Rectangle Object
@@ -304,5 +300,73 @@ function isPositive(a) {
  */
 
 function Rectangle(a, b) {
-    
+  let rectangle = {
+    length: a,
+    width: b,
+    perimeter: 2 * (a + b),
+    area: a * b,
+  };
+
+  return rectangle;
+}
+
+//======================================================================
+/* Day 4: Count Objects
+ * Return a count of the total number of objects 'o' satisfying o.x == o.y.
+ *
+ * Parameter(s):
+ * objects: an array of objects with integer properties 'x' and 'y'
+ */
+
+function getCount(objects) {
+  let counter = 0;
+
+  for (let o of objects) {
+    if (o.x == o.y) {
+      counter++;
+    }
+  }
+
+  return counter;
+}
+
+//======================================================================
+/* Day 4: Classes
+ * Implement a Polygon class with the following properties:
+ * 1. A constructor that takes an array of integer side lengths.
+ * 2. A 'perimeter' method that returns the sum of the Polygon's side lengths.
+ */
+
+class Polygon {
+  constructor(sides) {
+    this.sides = sides;
+  }
+
+  perimeter(sides) {
+    let p = 0;
+    for (let current = 0; current < this.sides.length; current++) {
+      p += this.sides[current];
+    }
+    return p;
+  }
+}
+
+//======================================================================
+/* Day 4: Classes*
+ *  Write code that adds an 'area' method to the Rectangle class' prototype
+ * Create a Square class that inherits from Rectangle and implement its class constructor
+ */
+class Rectangle {
+  constructor(w, h) {
+    this.w = w;
+    this.h = h;
+  }
+}
+Rectangle.prototype.area = function (w, h) {
+    return this.w * this.h;
+}
+class Square extends Rectangle {
+  constructor(length) {
+    super(length, length);
+  }
 }
