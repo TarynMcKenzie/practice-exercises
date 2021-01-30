@@ -363,10 +363,57 @@ class Rectangle {
   }
 }
 Rectangle.prototype.area = function (w, h) {
-    return this.w * this.h;
-}
+  return this.w * this.h;
+};
 class Square extends Rectangle {
   constructor(length) {
     super(length, length);
   }
+}
+
+//======================================================================
+/* Day 5: Template Literals
+ * Determine the original side lengths and return an array:
+ * - The first element is the length of the shorter side
+ * - The second element is the length of the longer side
+ *
+ * Parameter(s):
+ * literals: The tagged template literal's array of strings.
+ * expressions: The tagged template literal's array of expression values (i.e., [area, perimeter]).
+ */
+
+function sides(literals, ...expressions) {
+  let area = expressions[0];
+  let perimeter = expressions[1];
+  let bucketAnswers = [];
+
+  var s1 = (perimeter + Math.sqrt(Math.pow(perimeter, 2) - 16 * area)) / 4;
+  var s2 = (perimeter - Math.sqrt(Math.pow(perimeter, 2) - 16 * area)) / 4;
+
+  bucketAnswers.push(s1);
+  bucketAnswers.push(s2);
+
+  return bucketAnswers.sort();
+}
+
+//======================================================================
+/* Day 5: Arrow Functions
+ * Modify and return the array so that all even elements are doubled and all odd elements are tripled.
+ *
+ * Parameter(s):
+ * nums: An array of numbers.
+ */
+function modifyArray(nums) {
+  let bucketAnswers = [];
+
+  for (let current of nums)
+    if (current % 2 == 0) {
+      let byTwo = current * 2;
+      bucketAnswers.push(byTwo);
+    } else if (current % 2 != 0) {
+      let byThree = current * 3;
+      bucketAnswers.push(byThree);
+    }
+
+  return bucketAnswers;
 }
