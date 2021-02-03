@@ -418,23 +418,37 @@ function modifyArray(nums) {
   return bucketAnswers;
 }
 
-
-
-
 //======================================================================
 /* Day 6: Bitwise Operators
-*/
+ */
 
-function getMaxLessThanK (n,k){
-
+function getMaxLessThanK(n, k) {
   let abMax = 0;
-  
-  for(let b = n; b > 0; b--){ // Find B
-    for(let a = b - 1; a > 0; a--){ // Find A
-      if((a&b) < k && (a&b) > abMax){ // A&B < K Check
-        abMax = (a&b);
+
+  for (let b = n; b > 0; b--) {
+    // Find B
+    for (let a = b - 1; a > 0; a--) {
+      // Find A
+      if ((a & b) < k && (a & b) > abMax) {
+        // A&B < K Check
+        abMax = a & b;
       }
     }
   }
   return abMax;
+}
+
+
+
+//======================================================================
+/* Day 6: JavaScript Dates
+ */
+
+// The days of the week are: "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+function getDayName(dateString) {
+
+  let dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let dayName = dayNames[new Date(dateString).getDay()]; 
+
+  return dayName;
 }
