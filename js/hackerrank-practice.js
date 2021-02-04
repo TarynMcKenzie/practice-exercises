@@ -452,3 +452,69 @@ function getDayName(dateString) {
 
   return dayName;
 }
+
+
+
+
+//======================================================================
+/* Day 7: Regular Expressions I
+ */
+function regexVar() {
+  /*
+   * Declare a RegExp object variable named 're'
+   * It must match a string that starts and ends with the same vowel (i.e., {a, e, i, o, u})
+   * --------------------------------------------------------------
+   *  ^    -> asserts position at start of the string
+   *  1st  -> Capturing Group ([aeiou])
+   *  .*   -> matches any character (except newline) - between zero. Unlimited times (greedy)
+   *  \1   -> matches the same text as most recently matched by the 1st capturing group
+   *  $    -> asserts position at the end of the string
+   */
+
+  const re = /^([aeiou]).*\1$/;
+  
+  return re;
+}
+
+
+
+//======================================================================
+/* Day 7: Regular Expressions II
+ */
+function regexVar() {
+  /*
+   * Declare a RegExp object variable named 're'
+   * It must match a string that starts with 'Mr.', 'Mrs.', 'Ms.', 'Dr.', or 'Er.', 
+   * followed by one or more letters.
+    * --------------------------------------------------------------
+   *  ^     -> asserts position at start of the string
+   *  1st   -> Capturing Group (Mr.|Mrs.|Ms.|Dr.|Er.)
+   *  \.    -> Decimal
+   *  +$    -> asserts position at the end of the string matches [A-Za-z] before it at least once (+)
+   */
+
+  const re = /^(Mr|Mrs|Ms|Dr|Er)\.[A-Za-z]+$/;
+  
+  return re;
+}
+
+
+
+//======================================================================
+/* Day 7: Regular Expressions III
+ */
+function regexVar() {
+  /*
+   * Declare a RegExp object variable named 're'
+   * It must match ALL occurrences of numbers in a string.
+   * --------------------------------------------------------------
+   *  \d    -> single digit character
+   *  g     -> global match
+   */
+
+  const re = /\d+/g;
+  
+  return re;
+}
+
+
